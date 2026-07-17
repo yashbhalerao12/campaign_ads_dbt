@@ -57,7 +57,7 @@ This project implements a complete analytics pipeline using:
 | Cloud Data Warehouse | Snowflake    |
 | Data Transformation  | dbt Core     |
 | Programming Language | SQL + Jinja  |
-| Visualization        | Power BI     |
+| Visualization        | Snowflake Streamlight     |
 | Version Control      | Git & GitHub |
 | Documentation        | dbt Docs     |
 | Package              | dbt_utils    |
