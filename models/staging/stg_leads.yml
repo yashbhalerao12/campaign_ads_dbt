@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: stg_leads
+
+    columns:
+      - name: lead_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: created_at
+        data_tests:
+          - not_null
+
+      - name: campaign_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_campaigns')
+                field: campaign_id
+      
+      - name: ad_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_ads')
+                field: ad_id
+
+      - name: customer_id
+        data_tests:
+          - not_null
+          
+      - name: lead_source
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - google_ads
+                  - meta_ads
+                  - microsoft_ads
+                  - tiktok_ads
+
+      - name: lead_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - new
+                  - contacted
+                  - qualified
+                  - lost
+                  - won
+
+      - name: vehicle_type
+        data_tests:
+         - not_null
+         - accepted_values:
+             arguments:
+              values:
+                - new 
+                - used
+
+      - name: vehicle_category
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - ev
+                  - sedan 
+                  - suv
+                  - hatchback
+
+      - name: dealer_id
+        data_tests:
+          - not_null
+          

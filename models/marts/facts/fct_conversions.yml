@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: fct_conversions
+    columns:
+      - name: conversion_id
+        tests:
+          - not_null
+          - unique
+
+      - name: lead_id
+        tests:
+          - not_null
+
+      - name: account_id
+        tests:
+          - not_null
+
+      - name: campaign_id
+        tests:
+          - not_null
+
+      - name: ad_group_id
+        tests:
+          - not_null
+
+      - name: ad_id
+        tests:
+          - not_null
+
+      - name: conversion_date
+        tests:
+          - not_null
+
+      - name: revenue
+        tests:
+          - not_null

@@ -1,0 +1,23 @@
+version: 2
+
+exposures:
+
+  - name: marketing_performance_dashboard
+    label: Marketing Performance Dashboard
+    type: dashboard
+
+    maturity: high
+
+
+    description: >
+      Executive dashboard showing campaign performance,
+      leads and conversions.
+
+    depends_on:
+      - ref('fct_ads_performance')
+      - ref('fct_leads')
+      - ref('fct_conversions')
+
+    owner:
+      name: Marketing Analytics Team
+      

@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_ad_group
+    description: Mart model (dimensions) containing ad group and campaign with its account details.
+
+    columns:
+      - name: ad_group_id
+        description: Primary key for ad_group.
+        data_tests:
+          - not_null
+          - unique
+
+      

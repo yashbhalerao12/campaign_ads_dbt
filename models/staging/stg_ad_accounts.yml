@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_ad_accounts
+
+    columns:
+      - name: account_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: platform
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - google_ads
+                  - meta_ads
+                  - microsoft_ads
+                  - tiktok_ads
+
+      - name: currency
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - INR
+                  - USD 

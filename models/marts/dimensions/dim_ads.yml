@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_ads
+    description: Intermediate model containing ad, ad group, campaign, and account details.
+
+    columns:
+      - name: ad_id
+        description: Primary key for the ad.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: ad_group_id
+        description: Primary key for the ad_group_id.
+        data_tests:
+          - not_null
+          
+
+      - name: campaign_id  
+        description: Primary key for the campaign_id.
+        data_tests:
+          - not_null  
+
+      - name: account_id
+        description: Primary key for the account_id.
+        data_tests:
+          - not_null  
+  

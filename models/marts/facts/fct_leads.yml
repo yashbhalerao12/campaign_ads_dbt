@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: fct_leads
+    columns:
+      - name: lead_id
+        data_tests:
+          -  not_null
+          - unique
+
+      - name: ad_id
+        data_tests:
+          - not_null
+
+
+      - name: campaign_id
+        data_tests:
+          - not_null
+
+      - name: ad_group_id
+        data_tests:
+          - not_null
+
+      - name: account_id
+        data_tests:
+          - not_null

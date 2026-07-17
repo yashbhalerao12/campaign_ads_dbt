@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: stg_ad_performance
+
+    columns:
+      - name: date
+        data_tests:
+          - not_null
+      
+      - name: platform
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - microsoft_ads
+                  - google_ads
+                  - meta_ads
+                  - tiktok_ads
+      
+      - name: account_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_ad_accounts')
+                field: account_id
+      
+      - name: campaign_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_campaigns')
+                field: campaign_id
+
+      - name: ad_group_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_ad_groups')
+                field: ad_group_id
+
+      - name: ad_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_ads')
+                field: ad_id
+
+      - name: country
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - AE 
+                  - GB 
+                  - SA 
+                  - IN 
+
+      - name: device
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - mobile
+                  - desktop
+                  - tablet
+                  - unknown
+
+      - name: source_updated_at
+        data_tests:
+          - not_null
+          

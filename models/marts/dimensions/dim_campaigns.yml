@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_campaigns
+    description: Mart model (dimensions) containing campaign and account details.
+
+    columns:
+      - name: campaign_id
+        description: Primary key for the campaign.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: account_id
+        description: Primary key for the account 
+        data_tests:
+          - not_null

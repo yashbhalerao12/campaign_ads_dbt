@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: fct_ads_performance
+    columns:
+      - name: date
+        data_tests:
+          -  not_null
+
+      - name: ad_id
+        data_tests:
+          - not_null
+
+
+      - name: device
+        data_tests:
+          - not_null
+
+      - name: campaign_id
+        data_tests:
+          - not_null
+
+      - name: account_id
+        data_tests:
+          - not_null

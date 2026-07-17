@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: int_conversion_details
+
+    columns:
+      - name: conversion_id
+        data_tests:
+          - not_null
+          - unique
+      
+      - name: lead_id
+        data_tests:
+          - not_null
+      
+      - name: campaign_id
+        data_tests:
+          - not_null
+
+      - name: account_id
+        data_tests:
+          - not_null

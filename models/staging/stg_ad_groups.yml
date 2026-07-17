@@ -1,0 +1,47 @@
+version: 2
+
+models: 
+  - name: stg_ad_groups
+
+    columns:
+      - name: ad_group_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: campaign_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_campaigns')
+                field: campaign_id
+
+      - name: status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - enabled
+                  - paused 
+
+      - name: bid_strategy
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - manual_cpc
+                  - maximize_conversions
+                  - target_cpa
+
+      - name: target_audience
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - car intenders
+                  - high income auto
+                  - website visitors

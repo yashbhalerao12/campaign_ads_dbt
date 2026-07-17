@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_conversions
+
+
+    columns:
+      - name: conversion_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: lead_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_leads')
+                field: lead_id
+
+      - name: conversion_date
+        data_tests:
+          - not_null
+
+      - name: conversion_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - booking
+                  - vehicle_sale
+                  - dealer_subscription 
+
+      - name: is_refunded
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - true
+                  - false

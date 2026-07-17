@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+  - name: campaign_ads
+    database: CAMPAIGN_ADS_DB
+    schema: RAW
+
+    config:
+      freshness:
+        warn_after:
+          count: 24
+          period: hour
+        error_after:
+          count: 250
+          period: hour
+
+    
+
+    tables:
+      - name: ad_accounts
+        config:
+          loaded_at_field: updated_at
+
+      - name: campaigns
+        config: 
+          loaded_at_field: updated_at
+
+      - name: ad_groups 
+        config:
+          loaded_at_field: updated_at
+
+      - name: ads
+        config: 
+          loaded_at_field: updated_at
+
+      - name: ad_performance 
+        config:
+          loaded_at_field: source_updated_at
+
+      - name: leads
+        config:
+          loaded_at_field: created_at
+
+      - name: conversions
+        config:
+          loaded_at_field: updated_at

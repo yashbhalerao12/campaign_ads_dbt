@@ -1,0 +1,42 @@
+version: 2
+
+models: 
+  - name: stg_ads
+
+    columns:
+      - name: ad_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: ad_group_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_ad_groups')
+                field: ad_group_id
+
+      - name: status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - enabled
+                  - paused 
+
+      - name: ad_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - video
+                  - image
+                  - responsive_search
+
+      - name: landing_page_url
+        data_tests:
+          - not_null
+          
